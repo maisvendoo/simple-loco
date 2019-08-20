@@ -38,6 +38,9 @@ private:
 
     /// Расчет тяговой характеристики
     double trac_char(double v);
+
+    /// Загрузка пользовательских параметров из конфига
+    void loadConfig(QString cfg_path);
 };
 
 #endif // SIMPLE_LOCO_H

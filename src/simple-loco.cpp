@@ -88,4 +88,25 @@ double SimpleLoco::trac_char(double v)
     return traction_force;
 }
 
+//------------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------------
+void SimpleLoco::loadConfig(QString cfg_path)
+{
+    // Создаем экземпляр "читателя" XML-конфигов
+    CfgReader cfg;
+
+    // Открываем конфигурационный файл по переданному движком пути
+    if (cfg.load(cfg_path))
+    {
+        // Задаем имя секции конфига, из которой будем читать параметры
+        QString sectionName = "Vehicle";
+
+        // Читаем интересующие нас параметы в соотвествующие переменные
+        cfg.getDouble(sectionName, "F_max", F_max);
+        cfg.getDouble(sectionName, "F_nom", F_nom);
+        cfg.getDouble(sectionName, "V_nom", V_nom);
+    }
+}
+
 GET_VEHICLE(SimpleLoco)
