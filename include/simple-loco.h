@@ -18,6 +18,8 @@ public:
 
 private:
 
+    /// Обработка нажатия клавиш
+    void keyProcess();
 };
 
 #endif // SIMPLE_LOCO_H
