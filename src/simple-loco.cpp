@@ -55,6 +55,13 @@ void SimpleLoco::step(double t, double dt)
         Q_a[i] = torque;
     }
 
+    analogSignal[194] = static_cast<float>(wheel_rotation_angle[0] / 2.0 / Physics::PI);
+    analogSignal[195] = static_cast<float>(wheel_rotation_angle[1] / 2.0 / Physics::PI);
+    analogSignal[196] = static_cast<float>(wheel_rotation_angle[2] / 2.0 / Physics::PI);
+    analogSignal[197] = static_cast<float>(wheel_rotation_angle[3] / 2.0 / Physics::PI);
+    analogSignal[198] = static_cast<float>(wheel_rotation_angle[4] / 2.0 / Physics::PI);
+    analogSignal[199] = static_cast<float>(wheel_rotation_angle[5] / 2.0 / Physics::PI);
+
     DebugMsg = QString("Время: %1 с Зад. тяга: %2 Скорость: %3 км/ч Сила тяги: %4 кН")
             .arg(t, 10, 'f', 1)
             .arg(ref_traction_level, 4, 'f', 2)
